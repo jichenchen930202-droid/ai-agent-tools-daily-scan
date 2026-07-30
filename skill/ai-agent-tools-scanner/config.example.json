@@ -1,0 +1,19 @@
+{
+  "_comment": "配置模板。复制为 config.json 后按需修改。所有项均可被命令行参数覆盖（CLI > config > 默认值）。切勿在此文件写入明文 PAT —— 凭据只经环境变量传递。",
+
+  "search_date": "auto",
+  "work_dir": "./ai-agent-tools-scan-data",
+  "output_format": "both",
+  "lang": "zh",
+
+  "github_repo_url": "",
+  "github_branch": "main",
+  "github_auth_method": "token",
+  "github_token_env": "GITHUB_TOKEN",
+  "push_retries": 3,
+  "push_retry_interval": 30,
+
+  "schedule_time": "09:00",
+  "schedule_frequency": "daily",
+  "custom_cron": ""
+}
