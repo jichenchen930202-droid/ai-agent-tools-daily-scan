@@ -15,5 +15,9 @@
 
   "schedule_time": "09:00",
   "schedule_frequency": "daily",
-  "custom_cron": ""
+  "custom_cron": "",
+
+  "_comment_dingtalk": "钉钉推送配置。webhook 为空则跳过推送。keywords 是钉钉机器人的安全关键词（消息内容须至少包含其一）。",
+  "dingtalk_webhook": "",
+  "dingtalk_keywords": "免费,大模型"
 }

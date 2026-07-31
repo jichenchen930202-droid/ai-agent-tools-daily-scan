@@ -35,6 +35,8 @@ agent_created: true
 | `schedule_frequency` | enum `daily` \| `weekly` \| `custom_cron` | `daily` | 否 | 推荐执行频率（声明性）。 |
 | `custom_cron` | string | 空 | 否 | `schedule_frequency=custom_cron` 时的 cron 表达式。 |
 | `lang` | enum `zh` \| `en` | `zh` | 否 | 检索词与报告输出语言。 |
+| `dingtalk_webhook` | string URL | 空 | 否 | 钉钉机器人 webhook URL。**为空则跳过钉钉推送**，不视为失败。 |
+| `dingtalk_keywords` | string | `免费` | 否 | 钉钉机器人安全关键词（逗号分隔多个），消息内容须至少包含其一。 |
 
 > 参数可通过三种等价方式传入，优先级从高到低：**命令行参数 > 配置文件（`--config` 指向的 JSON）> 默认值**。本 skill 不读取任何隐含上下文。`config.example.json` 为配置文件模板。
 
@@ -148,7 +150,27 @@ JSON 报告结构：
 脚本自动处理空结果（生成「当日未发现新工具」报告而非中断）并写运行日志。
 亦可用 `--config <path>` 从配置文件读取默认值；显式命令行参数优先。
 
-### Step 6: 推送 Git 仓库（可选）
+### Step 6: 推送钉钉群（可选）
+
+```
+{{shell}}: {{python}} <skill_dir>/scripts/dingtalk_push.py \
+  --work-dir {work_dir} \
+  --date    {search_date} \
+  --webhook {dingtalk_webhook} \
+  --keywords {dingtalk_keywords}
+```
+
+脚本内置行为：
+- 读取 `{work_dir}/reports/{search_date}/ai-agent-tools-report-{search_date}.md` 作为消息内容。
+- 消息标题固定为「【免费AI Agent工具 每日扫描】」，确保包含钉钉机器人安全关键词。
+- 消息内容过长时自动截断（钉钉 text 消息上限约 20000 字节），尾部提示完整报告见仓库。
+- 使用 Python `urllib` 发送（**严禁 bash curl 内联中文**，会导致 UTF-8 乱码触发关键词校验失败）。
+- webhook URL 为空 → 记录「跳过推送」，退出码 0。
+- 报告文件不存在 → 发送错误通知到钉钉（含关键词），退出码 1。
+- webhook 中的 access_token 在日志中自动脱敏。
+- 推送失败（errcode ≠ 0）→ 记录错误日志，退出码 4，但**不影响后续 Git 推送**。
+
+### Step 7: 推送 Git 仓库（可选）
 
 ```
 {{shell}}: {{python}} <skill_dir>/scripts/git_push.py \
@@ -169,18 +191,19 @@ JSON 报告结构：
 - `repo_url` 为空 → 记录「跳过推送」，退出码 0。
 - PAT 在所有日志与命令回显中自动脱敏为 `***TOKEN***`。
 
-### Step 7: 汇报
+### Step 8: 汇报
 
-检查两个脚本退出码，非 0 时读取 `{work_dir}/logs/error-{search_date}.log` 摘要原因。向调用方汇报：**发现工具数量、报告文件路径、推送结果**（成功 commit hash / 跳过 / 失败原因）。
+检查三个脚本退出码，非 0 时读取 `{work_dir}/logs/error-{search_date}.log` 摘要原因。向调用方汇报：**发现工具数量、报告文件路径、钉钉推送结果、Git 推送结果**（成功 / 跳过 / 失败原因）。
 
 ## 退出码约定
 
 | 码 | 含义 |
 |---|---|
-| 0 | 成功（含「无结果空报告」与「未配置仓库跳过推送」） |
+| 0 | 成功（含「无结果空报告」与「未配置 webhook/仓库跳过推送」） |
 | 1 | 脚本内部异常（详见 error 日志） |
 | 2 | 认证配置缺失（`auth_method=token` 但 token 环境变量为空） |
-| 3 | 推送重试耗尽仍失败（本地报告已保留） |
+| 3 | Git 推送重试耗尽仍失败（本地报告已保留） |
+| 4 | 钉钉 API 返回 errcode != 0（不影响后续步骤） |
 
 ## 调度集成（由调用方实现）
 
