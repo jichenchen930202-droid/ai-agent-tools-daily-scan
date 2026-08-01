@@ -320,6 +320,13 @@ def main():
                 return 0
             last_err = mask((r.stderr or r.stdout or "").strip(), token)
             logger.error("推送失败（第 %d 次）: %s" % (attempt, last_err))
+            # 远端领先（non-fast-forward）时，先 pull --rebase 再重试，避免盲目重试必然失败
+            if "rejected" in last_err or "fetch first" in last_err or "non-fast-forward" in last_err:
+                logger.info("检测到远端领先，执行 git pull --rebase 后重试")
+                pr = run_git(["pull", "--rebase", "origin", branch], work_dir, logger, token, check=False)
+                if pr.returncode != 0:
+                    logger.error("pull --rebase 失败，中止 rebase: %s" % mask((pr.stderr or pr.stdout or "").strip(), token))
+                    run_git(["rebase", "--abort"], work_dir, logger, token, check=False)
             if attempt < retries:
                 logger.info("等待 %d 秒后重试..." % retry_interval)
                 time.sleep(retry_interval)
