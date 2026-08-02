@@ -1,0 +1,81 @@
+{
+  "report_date": "2026-08-02",
+  "generated_at": "2026-08-02 14:36:11",
+  "tool_count": 6,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "PilotDeck",
+      "description": "清华大学 THUNLP 实验室、面壁智能、OpenBMB 与 AI9Stars 联合开源的「智能体操作系统」。以 WorkSpace（工作舱）为基本单位，对每个项目的文件系统、记忆库、技能集做完整隔离与沉淀；配套白盒记忆（生成/提取/存储/检索全链路可见可编辑，支持 Dream 模式整理与一键回滚）、智能路由（按任务难度自动匹配不同价位模型，官方称社媒生成场景可省约 70% Token）、Always-on（人离开电脑后 Agent 继续主动推进并产出文件）。原生支持 MCP，Web / CLI / IM 多前端行为一致。与 WorkBench 相似度：高——同为通用型任务制 Agent 工作台，具备多项目编排、记忆系统、技能生态、定时/常驻自动执行与工具调用能力。适用场景：长周期内容生产、多项目并行研发、后台自动化监控与报告。",
+      "free_usage": "AGPL-3.0 开源，完全免费自部署，无需信用卡。macOS/Linux 一行安装脚本（install.sh，自动配置 Node.js 22），也支持源码与 Docker 部署，默认 http://localhost:3001。另提供官网在线体验。模型 API 费用需自备（可接 OpenAI/DeepSeek 等）；注意 AGPL-3.0 对二次分发与 SaaS 化有 copyleft 义务。",
+      "links": {
+        "website": "https://pilotdeck.openbmb.cn",
+        "github": "https://github.com/OpenBMB/PilotDeck",
+        "docs": "https://github.com/OpenBMB/PilotDeck/blob/main/README.zh.md"
+      },
+      "last_updated": "2026-08-01",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "InternAgentS",
+      "description": "上海人工智能实验室智能体系统中心开源的「科研智能体工作台」，基于 DeepAgents 与 LangGraph 构建，被定位为 Claude Science 的开源本地部署替代。三栏工作台把会话、项目文件、运行状态放在一起；内置文献调研、结果分析、图表生成、论文写作、幻灯片制作等科学技能；可通过 SSH 连接远程 Linux 主机提交计算任务并走人工审批流；支持 SCP（科学智能上下文协议）+ MCP 双协议，据官方称可接入 3600+ 科研工具与 Skills。与 WorkBench 相似度：中高——同为项目空间式 Agent 工作台，具备技能系统、工具/MCP 生态、审批与远程执行，但垂直聚焦科研场景。适用场景：高校实验室、研究生、算法工程师、企业研发的文献-实验-写作全流程。",
+      "free_usage": "MIT 协议开源，免费使用与商用，支持本地/机构内网部署，无需信用卡。本地优先设计，项目文件与 API Key 默认留在用户设备。模型可自选：DeepSeek、通义千问、GLM、Kimi、Intern-S、Claude 或本地私有模型服务，模型调用费用自理；官方提及即将支持上海 AI 实验室「集思」国产模型免费平台（截至 2026-08-02 尚未上线，状态 unknown）。",
+      "links": {
+        "website": "https://internagents.github.io/",
+        "github": "https://github.com/qzzqzzb/OpenClaudeScience",
+        "docs": "https://internagents.github.io/"
+      },
+      "last_updated": "2026-07-13",
+      "source_channel": "导航站"
+    },
+    {
+      "name": "CortexPrism",
+      "description": "开源、可自托管的 Agent Operating System（智能体操作系统），把任意 LLM 变成具备长期自主能力的 Agent。核心能力：5 层持久记忆（情景/语义/反思/图/技能，FTS5 关键词 + 向量混合检索）、60+ 内置工具、沙箱代码执行（Python/WASM 隔离容器）、ESM/MCP/WASM 插件市场（168 个插件）、支持 30 家 LLM 供应商与成本感知的模型路由（cascade/threshold）+ 强化学习驱动的 Model Quartermaster、DSL 工作流引擎（分支/并行/审批门）、6 种多智能体编排策略与 A2A Swarm 集群、daemon 常驻与定时任务、语音管线、Computer Use（GUI 自动化）、Parallax 三层安全（加密凭据保险箱 + 策略引擎 + 审批流 + 审计日志）。与 WorkBench 相似度：高——覆盖 agent loop、工具调用、MCP、定时任务、记忆系统、本地文件与系统访问。适用场景：企业内自托管 Agent、跨会话知识库、DevOps 定时代理任务。",
+      "free_usage": "Apache-2.0 开源（注：部分第三方目录站写作 MIT，以 GitHub 仓库 LICENSE 的 Apache-2.0 为准），完全免费自托管、可商用，无需信用卡。单个 Deno 二进制交付，一行命令安装（curl -fsSL https://cortexprism.io/install.sh | bash），Linux/macOS/Windows/WSL 均可，无需 Docker 即可启动（完全隔离沙箱推荐配 Docker）。零遥测，数据与凭据全部留本机。LLM 调用费用自理。当前版本 v0.53.1。",
+      "links": {
+        "website": "https://cortexprism.io/",
+        "github": "https://github.com/CortexPrism/cortex",
+        "docs": "https://cortexprism.io/"
+      },
+      "last_updated": "2026-06-25",
+      "source_channel": "导航站"
+    },
+    {
+      "name": "AladdinAI",
+      "description": "开源 BYOI（Bring Your Own Infrastructure，自带基础设施）AI Agent 平台：用可视化界面构建与管理 Agent，把自有 VM、NVIDIA NIM、OpenAI、Anthropic、Ollama 等算力与模型接进来统一编排。近期迭代活跃，2026-07 新增 docker-per-agent 隔离执行沙箱、原生开箱即用的 Meta-Search（ArXiv / Google News / RSS 等）与 Agent 工具调用、multi-agent swarm 多智能体协同；技术栈 FastAPI + Next.js + MongoDB + BentoML，提供 CLI 与 GitHub Action。与 WorkBench 相似度：中——具备可视化 Agent 编排、工具调用、多智能体与自托管沙箱执行，但生态与桌面/IM 集成成熟度较低。适用场景：希望把 Agent 完全跑在自有基础设施上的团队、混合模型供应商场景。",
+      "free_usage": "Apache-2.0 开源，免费自部署与商用，无需信用卡。docker-compose 一键起，另提供阿里云、Render 部署模板。所有推理成本取决于自带的模型服务（可全程用 Ollama 本地模型实现零 API 费用）。项目仍处早期（约 7 star / 818 commits / 10 个 open issue），生产可用性 unknown。",
+      "links": {
+        "website": "https://aliyev.site/AladdinAI",
+        "github": "https://github.com/aliyevaladddin/AladdinAI",
+        "docs": "https://github.com/aliyevaladddin/AladdinAI/tree/main/docs"
+      },
+      "last_updated": "2026-08-01",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Zorv AI",
+      "description": "安卓端「本地优先」的 AI Agent 智能体助手，Kotlin + Jetpack Compose 开发，2026-07-27 首次开源、8 月初仍在密集迭代（v1.0.14）。能力：多模型对话、人格系统、长期记忆、语音全双工 TTS/STT（含 Sherpa-NCNN 端侧语音）、定时任务、可扩展工具链、内置 GeckoView 与 QuickJS 支持网页/脚本执行、Shizuku 提权做系统级操作，并可接入飞书 / QQ / 微信。与 WorkBench 相似度：中——同样具备 agent loop、工具链扩展、记忆、定时任务与 IM 接入，但运行载体是手机而非桌面/云端，适合把 Agent 常驻在移动设备上。适用场景：手机端私有化语音助手、移动端自动化与消息机器人。",
+      "free_usage": "开源免费，README 声明主许可为 Apache-2.0（GitHub API 许可证字段识别为 NOASSERTION，因仓库混合了 MPL-2.0 的 GeckoView 等第三方组件）。从官方 Release 页下载 APK 即可，无需信用卡、无付费层。模型 API 需自备（支持接入本地/云端多模型）。项目非常新（创建于 2026-07-27，约 6 star），稳定性 unknown；官方提示务必从 Release 页下载以防安装包被篡改。",
+      "links": {
+        "website": "https://github.com/Quor-a/ZorvAI/releases",
+        "github": "https://github.com/Quor-a/ZorvAI",
+        "docs": null
+      },
+      "last_updated": "2026-08-01",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "cto.new",
+      "description": "宣称「Free forever」的托管式 AI Agent 团队平台：不是单个聊天机器人，而是可直接雇佣「现成 AI 团队」（Engineering Team 含技术负责人 + 后端 + 前端 + QA；Marketing Agency 含策略 + 文案 + 数据分析；Content Studio 含主编 + 撰稿 + 研究员），由技术负责人角色做架构规划并向下派活，形成多智能体分工协作；也支持把自建团队挂到市场上出售。底层跑 Anthropic / OpenAI 等前沿模型的代码 Agent。与 WorkBench 相似度：中——具备多智能体编排、任务自主执行与角色分工，但偏「云端托管 + 团队模板市场」形态，本地文件/系统访问能力 unknown。适用场景：独立开发者、小团队零成本试用前沿模型做编码与内容/营销自动化。",
+      "free_usage": "官网首页明确标注「Free forever」；ProductHunt 发布说明称完全免费、无需信用卡也无需自带 API Key，直接使用 Anthropic / OpenAI 等前沿模型。具体免费额度、速率限制与长期商业模式官方未公开（unknown），发布时曾有 waitlist 机制。非开源。",
+      "links": {
+        "website": "https://cto.new/",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "unknown",
+      "source_channel": "ProductHunt"
+    }
+  ]
+}
