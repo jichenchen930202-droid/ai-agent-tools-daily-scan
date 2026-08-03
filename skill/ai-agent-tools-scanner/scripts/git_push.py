@@ -117,12 +117,55 @@ def resolve(cli_value, config, key, default):
     return default
 
 
+_GIT_EXE_CACHE = []
+
+
+def resolve_git_exe(logger=None):
+    """定位 git 可执行文件。
+
+    PATH 中找不到 git 时（常见于便携版 Git 被重命名/未注册 PATH 的 Windows 环境），
+    回退扫描常见安装位置，避免直接抛 FileNotFoundError 导致整个推送失败。
+    """
+    if _GIT_EXE_CACHE:
+        return _GIT_EXE_CACHE[0]
+
+    found = shutil.which("git")
+    if not found:
+        import glob as _glob
+        home = os.path.expanduser("~")
+        candidates = []
+        # 便携版 Git（含升级过程中遗留的 *.old.* 目录）
+        for pattern in (
+            os.path.join(home, ".workbuddy", "vendor", "PortableGit*", "cmd", "git.exe"),
+            os.path.join(home, ".workbuddy", "vendor", "PortableGit*", "bin", "git.exe"),
+            os.path.join(home, "AppData", "Local", "Programs", "Git", "cmd", "git.exe"),
+        ):
+            candidates.extend(sorted(_glob.glob(pattern)))
+        candidates.extend([
+            r"C:\Program Files\Git\cmd\git.exe",
+            r"C:\Program Files (x86)\Git\cmd\git.exe",
+            "/usr/bin/git", "/usr/local/bin/git", "/opt/homebrew/bin/git",
+        ])
+        for c in candidates:
+            if os.path.exists(c):
+                found = c
+                if logger:
+                    logger.info("PATH 中未找到 git，回退使用：%s" % c)
+                break
+
+    if not found:
+        raise RuntimeError("未找到 git 可执行文件，请安装 git 或将其加入 PATH")
+    _GIT_EXE_CACHE.append(found)
+    return found
+
+
 def run_git(args_list, cwd, logger, secret=None, check=True, timeout=GIT_TIMEOUT):
     cmd_str = mask("git " + " ".join(args_list), secret)
     logger.info("执行: %s (cwd=%s)" % (cmd_str, cwd))
+    git_exe = resolve_git_exe(logger)
     try:
         result = subprocess.run(
-            ["git"] + args_list, cwd=cwd, capture_output=True, text=True,
+            [git_exe] + args_list, cwd=cwd, capture_output=True, text=True,
             encoding="utf-8", errors="replace",
             env=non_interactive_env(), stdin=subprocess.DEVNULL, timeout=timeout,
         )
