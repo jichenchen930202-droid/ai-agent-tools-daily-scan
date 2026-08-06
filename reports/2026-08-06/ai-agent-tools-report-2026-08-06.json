@@ -1,0 +1,81 @@
+{
+  "report_date": "2026-08-06",
+  "generated_at": "2026-08-06 10:05:07",
+  "tool_count": 6,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "DeerFlow (ByteDance)",
+      "description": "开源长周期 SuperAgent 编排框架，集沙箱、记忆、工具、技能、子智能体与消息网关于一体，能自主完成研究、编码、创作等耗时数分钟至数小时的任务。与 WorkBench 相似度高：提供多智能体编排与可视化工作流能力（基于 LangChain/LangGraph），可本地自部署。",
+      "free_usage": "开源（MIT 许可证），可免费自部署；需自备 LLM API Key 与运行环境（Docker）。无云端付费墙。",
+      "links": {
+        "website": "https://deerflow.tech",
+        "github": "https://github.com/bytedance/deer-flow",
+        "docs": null
+      },
+      "last_updated": "2026-08-05",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Ruflo",
+      "description": "开源 agent meta-harness（智能体元框架），用于部署多智能体 swarm（蜂群）、协调自主工作流、构建对话式 AI 系统；内置自适应记忆、自学习、RAG 集成，原生集成 Claude Code / Codex / Hermes 等。与 WorkBench 相似度高：多智能体编排与自动化工作流框架，可自部署。",
+      "free_usage": "开源（MIT），可免费自部署；需自备 API Key 与运行环境。",
+      "links": {
+        "website": "https://Cognitum.One",
+        "github": "https://github.com/ruvnet/ruflo",
+        "docs": null
+      },
+      "last_updated": "2026-08-05",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Page Agent (Alibaba)",
+      "description": "开源 JavaScript 网页内 GUI 智能体框架，用自然语言控制网页界面（点击、填写、操作 DOM）。与 WorkBench 相似度中：偏「GUI/浏览器自动化智能体」框架而非可视化构建器，但提供了用自然语言驱动网页操作的 agent 能力，可自部署，适合构建网页操作类 agent。",
+      "free_usage": "开源（MIT），可免费自部署；以 npm 包形式集成，需自备模型 API。",
+      "links": {
+        "website": "https://alibaba.github.io/page-agent/",
+        "github": "https://github.com/alibaba/page-agent",
+        "docs": "https://alibaba.github.io/page-agent/"
+      },
+      "last_updated": "2026-08-05",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "OpenClaw",
+      "description": "开源「个人 AI 助手」平台，可在任意操作系统/平台自托管，连接 Telegram、WhatsApp、Slack、Discord 等，强调 own-your-data。与 WorkBench 相似度中：属可自部署的 AI 智能体运行平台（端侧个人助手），而非低代码构建器；适合想把智能体跑在自己基础设施上的用户。",
+      "free_usage": "开源可自部署（仓库许可证为 NOASSERTION，非标准 SPDX 协议，使用前需查看仓库 LICENSE 确认条款）；无强制付费。",
+      "links": {
+        "website": "https://openclaw.ai",
+        "github": "https://github.com/openclaw/openclaw",
+        "docs": null
+      },
+      "last_updated": "2026-08-06",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Arahi Agent Builder",
+      "description": "无代码 AI 智能体构建平台：一句话描述即可生成可运行的智能体，呈现为可编辑的可视化图，支持替换工具、调整语气、添加审批节点；内置 1500+ 原生集成与 Agent 市场模板。与 WorkBench 相似度高：自然语言驱动的 agent 构建 + 可视化编排 + 多工具集成 + 定时/触发器工作流，定位同类。",
+      "free_usage": "有免费层（free plan，无需信用卡，可在免费额度内构建并运行工作流）；付费版按席位+用量扩展。免费额度具体上限未在官网明确，以官网 pricing 为准。免费层截至 2026-08-06 仍可注册使用。",
+      "links": {
+        "website": "https://arahi.ai",
+        "github": null,
+        "docs": "https://arahi.ai/autonomous-virtual-agents"
+      },
+      "last_updated": "unknown",
+      "source_channel": "导航站"
+    },
+    {
+      "name": "Lamoom",
+      "description": "面向 Claude 的「本地优先」智能体应用市场与 loop 构建器：用户可在自己的 Claude 环境中安装/运行 agent apps（loops，带自评 judge 循环），也可发布自己的 loop 并按时/按月收费。与 WorkBench 相似度中：提供 agent 工作流（loop）的封装、分发与运行，强调数据不出本地（运行在用户自己的 Claude）。",
+      "free_usage": "注册赠送 $20 免费额度可用于试用付费 agent apps（非永久免费层）；后续按 per-run 或月度订阅付费。创作者发布 loop 自行定价。",
+      "links": {
+        "website": "https://lamoom.com",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "unknown",
+      "source_channel": "ProductHunt"
+    }
+  ]
+}
