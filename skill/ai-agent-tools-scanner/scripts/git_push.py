@@ -238,6 +238,21 @@ def sync_skill_code(work_dir, skill_dir, logger):
     logger.info("skill 代码已同步到：%s" % dest)
 
 
+def merge_tree(src, dst):
+    """把 src 递归合并进 dst：dst 已存在的文件保留本地版本，缺失的从 src 补齐。
+
+    注意：必须逐层递归合并，不能因为顶层目录（如 reports/）已存在就整体跳过，
+    否则远端历史文件不会进入工作树，随后的 `git add -A` 会把它们记为删除。
+    """
+    if not os.path.exists(dst):
+        shutil.move(src, dst)
+        return
+    if os.path.isdir(src) and os.path.isdir(dst):
+        for name in os.listdir(src):
+            merge_tree(os.path.join(src, name), os.path.join(dst, name))
+    # dst 已存在同名文件：保留本地（本次新生成的产物优先），不覆盖
+
+
 def ensure_repo(work_dir, auth_url, branch, logger, secret):
     """确保 work_dir 是绑定了 origin 的 git 仓库。"""
     if os.path.exists(os.path.join(work_dir, ".git")):
@@ -266,10 +281,12 @@ def ensure_repo(work_dir, auth_url, branch, logger, secret):
         for name in os.listdir(tmp_clone):
             src = os.path.join(tmp_clone, name)
             dst = os.path.join(work_dir, name)
-            if name == ".git" or not os.path.exists(dst):
+            if name == ".git":
                 if os.path.exists(dst):
                     shutil.rmtree(dst, ignore_errors=True)
                 shutil.move(src, dst)
+            else:
+                merge_tree(src, dst)
         shutil.rmtree(tmp_clone, ignore_errors=True)
         logger.info("已 clone 远端仓库并合并到工作目录")
     else:
