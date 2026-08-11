@@ -1,0 +1,81 @@
+{
+  "report_date": "2026-08-11",
+  "generated_at": "2026-08-11 10:08:59",
+  "tool_count": 6,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "Hermes Agent v0.20（Herald Release）",
+      "description": "Nous Research 开源的自托管 AI Agent 工作台，v0.20「Herald」于 2026-08-03 发布。本次大版本把 Hermes 从终端 agent 扩展为跨 CLI / 桌面端 / 语音 / 网关 / 插件的完整 agent 操作面：新增流式语音对话（支持打断 barge-in）、本地唤醒词、A2A v1.0 智能体互联协议、带证据链的 grounded citations 研究技能、HMAC 签名 webhook 生命周期事件、桌面端插件 SDK 与沙箱化 artifact 预览，并集成 WhatsApp / 飞书 / 钉钉 / LINE / QQ / 微信等消息网关。与 WorkBench 相似度：高 —— 同为「agent loop + 工具调用 + 技能/插件生态 + 本地文件与系统访问 + 桌面客户端 + 多渠道接入」的通用型个人 agent 工作台，差异在于 Hermes 强调语音交互与 A2A 多智能体互联。适用场景：个人数字助理、研发与运维自动化、需要本地私有部署与语音控制的 agent 场景。",
+      "free_usage": "完全免费：MIT 许可证开源，可自部署，无免费额度限制、无需信用卡。实际成本为自备的 LLM API 费用；可用本地 Whisper（STT）+ Edge TTS + Ollama/vLLM 本地模型实现全离线零 API 成本运行。",
+      "links": {
+        "website": "https://hermes-agent.nousresearch.com",
+        "github": "https://github.com/NousResearch/hermes-agent",
+        "docs": null
+      },
+      "last_updated": "2026-08-11",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Prime Agent（Prime Intellect）",
+      "description": "Prime Intellect 于 2026-08-06 以 MIT 协议开源的自我改进型编码与研究 harness。架构上放弃了「给模型一堆 tool schema + 上下文满了就压缩」的主流做法，改为给模型一个持久化的 IPython kernel —— 工具、技能、子 agent 全部以 Python 代码形式在同一内核中运行；核心是 Recursive Language Model (RLM) 模式与自精炼循环，让 agent 在同一推理会话内修订自己的输出，而不是每次调用都从零开始。官方称在复杂编码与研究基准上超过人类专家基线。与 WorkBench 相似度：中 —— 具备完整 agent loop、工具调用、子 agent 编排与长时任务能力，但定位偏「编码/研究 harness」，缺少可视化低代码编排与通用办公场景。适用场景：AI 开发者工具链、自动化研究流水线、长周期编码任务。",
+      "free_usage": "完全免费：MIT 许可证开源，可商用、可 fork 修改后闭源分发，无授权摩擦。需自备 LLM API key。运行环境仅支持 Linux 与 macOS（Windows 需 WSL）。",
+      "links": {
+        "website": "https://github.com/PrimeIntellect-ai/prime-agent",
+        "github": "https://github.com/PrimeIntellect-ai/prime-agent",
+        "docs": null
+      },
+      "last_updated": "2026-08-11",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "DeerFlow 2.0（字节跳动）",
+      "description": "字节跳动开源的长周期 Super Agent 编排框架（Deep Exploration and Efficient Research Flow），2.0 为彻底重写版本，与 1.x 不共享代码。核心定位是处理需要几分钟到几小时才能完成的复杂任务：主 Agent 接收指令后规划并自动拆解为子 Agent（各自独立上下文与工具集），子 Agent 在沙盒容器中执行（隔离文件系统 + 受限 Shell），结果汇总回主 Agent 合成输出；配合跨会话持久记忆与 SKILL.md 定义的可扩展技能系统（内置研究、报告生成、幻灯片、网页生成、图像生成等技能，支持社区 .skill 包按需加载）。与 WorkBench 相似度：高 —— 「主 agent + 子 agent 编排 + 沙盒执行 + 长期记忆 + Skill 技能系统 + 消息网关」的组合与 WorkBench 的能力模型高度重合。适用场景：深度研究报告、长时自动化任务、多智能体协作流水线。",
+      "free_usage": "完全免费：MIT 许可证开源，可自部署，无功能墙。依赖 Python 3.12+ / Node.js 22+，支持任意 OpenAI 兼容的 LLM（可接本地模型），实际成本取决于所选模型的 API 费用。",
+      "links": {
+        "website": "https://deerflow.tech",
+        "github": "https://github.com/bytedance/deer-flow",
+        "docs": null
+      },
+      "last_updated": "2026-08-10",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "eve（Vercel 开源 Agent 框架）",
+      "description": "Vercel 在伦敦 Ship 大会发布的开源 agent 框架，主打「简单即特性」的填空式开发体验。一个 agent 就是一个目录，用 TypeScript + Markdown 描述 instructions、skills、模型 provider、tools、认证、channels 与 schedule（定时任务）；agent 生命周期完全由框架编排，开发者无需理解沙箱与上下文压缩细节。默认在隔离 VM 中沙箱运行，内置轻量测试工具可执行 agent 并评估结果。可用 `npx eve dev` 本地运行，也可 `vercel deploy` 一键部署；LLM 与沙箱 provider 均可配置，通过 AI SDK 接入任意模型。与 WorkBench 相似度：中高 —— 同样具备 agent loop、工具调用、技能定义、定时任务与多渠道接入，但面向开发者的代码式定义，无可视化画布。适用场景：TypeScript 团队快速构建可部署的定制 agent、企业内部自动化。",
+      "free_usage": "框架本身 Apache 2.0 开源免费，可完全脱离 Vercel 平台自托管（官方称 100% 承诺跨平台可用）。注意：社区已反馈早期版本即使配置第三方模型 provider 仍要求 Vercel 登录（官方视为 bug）；部署到 Vercel 平台则按其常规套餐计费，Hobby 免费层可用。",
+      "links": {
+        "website": "https://eve.dev",
+        "github": "https://github.com/vercel/eve",
+        "docs": null
+      },
+      "last_updated": "2026-08-11",
+      "source_channel": "社区"
+    },
+    {
+      "name": "PenguinHarness（企鹅驾驭师）",
+      "description": "LlamaFactory 作者郑耀威新开源的自进化 Agent Harness，仓库创建于 2026-07-19，主打轻量、开源、易用。核心能力是「让 Agent 自动构建、评测并持续改进另一个 Agent」—— 基于原创 Agent 内核，兼容 DeepSeek / Kimi / GPT / Claude / Gemini 等主流模型，从「手动调优 Agent」迈向「Agent 自我迭代」，呼应 2026 年 AI4AI / 递归自我改进（RSI）方向。官方对比案例中生成 RAG 应用（分块检索 + 流式返回 + 引用）比 OpenAI Codex 耗时更短、成本低数十倍，宣称约 0.2 元即可自动造出一个 Agent。与 WorkBench 相似度：中 —— 具备 agent 构建、技能系统与工作流能力，但侧重「自动生成与自进化 agent」这一元层面，而非直接面向终端用户的任务执行工作台。适用场景：批量生产定制 Agent、Agent 效果自动评测与迭代、低成本 Agent 原型验证。",
+      "free_usage": "完全免费：Apache 2.0 许可证开源，可自部署与商用，无免费额度限制、无需信用卡。需自备 LLM API key，官方强调单次构建成本极低（约 0.2 元量级，取决于所选模型）。",
+      "links": {
+        "website": "https://penguin.ooo/",
+        "github": "https://github.com/Prism-Shadow/penguin-harness",
+        "docs": null
+      },
+      "last_updated": "2026-08-10",
+      "source_channel": "社区"
+    },
+    {
+      "name": "DeepThink v1.1.0",
+      "description": "AI Genius Institute 开源的自托管多用户本地 AI Agent Loop Engineering 系统，支持桌面端 + 浏览器 + 移动端 PWA，定位「私有 AI 操作系统（AI OS）」：在安全隔离的沙箱中自主执行代码、管理文件、完成长程任务。功能覆盖 Agent Studio 与 Agent 定义、知识库、沙箱化代码执行、27 个 MCP 工具、定时任务、记忆系统、Skills 系统、子 Agent 与对话追踪、Web 终端、计费与用量统计、多用户与安全隔离，并可绑定飞书 / Telegram / QQ / 钉钉 / 微信 / Discord / WhatsApp 等 IM。v1.1.0（2026-08-07 发布说明）新增自主性升级（Autonomy Layer + 度量埋点 + 验收套件）与全托管自主模式。与 WorkBench 相似度：高 —— MCP 工具、定时任务、记忆系统、Skills、沙箱执行、IM 接入几乎逐项对应。适用场景：团队私有化部署的通用 agent 平台、需要多用户与用量管控的内部 AI 工作台。注意：GitHub 镜像仓库星标较少（21），最新版以 Gitcode 为准，属早期项目需自行评估成熟度。",
+      "free_usage": "完全免费：MIT 许可证开源，宣称「全球免费开源自由使用」，支持 Docker 自部署与桌面版打包，无官方额度限制。需自备模型 API；内置计费与用量统计模块供自建多用户场景使用。",
+      "links": {
+        "website": "https://gitcode.com/AIGeniusInstitute/deepthink",
+        "github": "https://github.com/AIGeniusInstitute/deepthink",
+        "docs": null
+      },
+      "last_updated": "2026-08-06",
+      "source_channel": "导航站"
+    }
+  ]
+}
