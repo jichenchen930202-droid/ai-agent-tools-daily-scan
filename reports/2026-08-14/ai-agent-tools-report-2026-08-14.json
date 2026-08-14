@@ -1,0 +1,69 @@
+{
+  "report_date": "2026-08-14",
+  "generated_at": "2026-08-14 10:11:41",
+  "tool_count": 5,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "DeepSeek Harness",
+      "description": "DeepSeek 首款 Agent 产品（v0.1 开发者预览，2026-08-13 发布），以「Model + Harness = Agent」为核心理念，基于 Cordis 插件元框架实现「一切皆插件」：模型、工具、技能、会话、沙箱、存储、Agent Loop、调度、UI 全部由可替换插件组成。内置项目管理、长周期任务协作、多智能体编排、上下文管理、联网检索与 Skill 扩展，支持 OpenAI/Anthropic/Google/Kimi 等近 40 家模型。相似度：高——本地 Agent 工作台/执行层基础设施，与 WorkBench 的 Agent 构建与编排定位高度一致，直接对标 OpenAI Codex 与 Claude Code。",
+      "free_usage": "MIT 协议完全开源，可自由下载、自部署与二次开发；通过 `npx @deepseek-ai/dsh web` 本地一键启动 Web UI。当前为早期预览版（v0.1），官方提示后续迭代可能出现破坏性变更，暂不建议承载生产工作流；模型调用需自备 API Key（不强制 DeepSeek 自家模型）。",
+      "links": {
+        "website": "https://github.com/deepseek-ai/deepseek-harness",
+        "github": "https://github.com/deepseek-ai/deepseek-harness",
+        "docs": null
+      },
+      "last_updated": "2026-08-13",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Moltis",
+      "description": "用 Rust 编写的安全、持久化自托管个人 Agent 服务器，单二进制文件、无 Node.js 运行时。内置沙箱执行（Docker/Apple Container/WASM）、多 LLM 提供商（Anthropic/OpenAI/Gemini/DeepSeek/Ollama 等）、长程记忆（SQLite+向量）、MCP 支持、多通道（Web UI/Telegram/Discord/WhatsApp/Teams/Slack/Matrix）与 Hook 系统。相似度：高——自托管 Agent 运行时 + 编排 + 工具调用 + 记忆，与 WorkBench 的本地 Agent 构建/执行定位高度契合，且强调安全与可审计（workspace 级禁 unsafe）。",
+      "free_usage": "MIT 许可证，个人与商业使用均免费；完全本地运行，无需云服务或订阅，LLM 调用使用自有 API Key。提供一键安装脚本、Homebrew、Docker（ghcr.io/moltis-org/moltis）与源码构建（cargo install）。最新发布 20260723.03（2026-07-24）。",
+      "links": {
+        "website": "https://www.moltis.org/",
+        "github": "https://github.com/moltis-org/moltis",
+        "docs": "https://docs.moltis.org/"
+      },
+      "last_updated": "2026-08-09",
+      "source_channel": "社区"
+    },
+    {
+      "name": "Nexent",
+      "description": "基于 MCP 工具生态的开源零代码 AI 智能体自动生成平台，将自然语言描述直接转化为可运行的智能体，无需编排或拖拽。基于 ReAct 的多智能体协作、多源工具集成（MCP/LangChain/Nexent 原生）、企业级工作流编排引擎、个人/全局知识库、互联网检索与知识级可追溯。相似度：高——零代码 Agent 构建 + 多智能体编排 + 知识库 + 工具集成，与 WorkBench 的「自然语言构建智能体」定位高度一致。",
+      "free_usage": "开源、可自部署（GitHub 开源，具体许可证 unknown——主仓库根目录未显式提供 LICENSE/SPDX 声明，需以官方仓库为准）；支持本地或云部署。模型与工具调用需自备 Key。活跃开发中（2026-08-14 仍有提交）。",
+      "links": {
+        "website": "https://nexent.tech/zh",
+        "github": "https://github.com/ModelEngine-Group/nexent",
+        "docs": null
+      },
+      "last_updated": "2026-08-14",
+      "source_channel": "导航站"
+    },
+    {
+      "name": "AstrBot",
+      "description": "开源（AGPL-3.0，据 dev.co/ai-toolbase/awesomeskills 等多源确认，GitHub 页面未直接显式标注）Python AI Agent 助手与开发框架，集成 QQ/微信/Telegram/Discord/Slack/飞书/钉钉等数十种 IM 平台与多种 LLM，支持插件架构（1000+ 社区插件）、知识库、MCP、Agent 沙箱代码执行与自动上下文压缩。相似度：中高——以消息入口为载体的 Agent 平台，强调 Agent 能力（多轮工具调用、MCP、Skills、沙箱），可作为 OpenClaw 替代方案；偏对话/群聊场景而非纯工作流编排。",
+      "free_usage": "AGPL-3.0 开源，完全免费、可自部署（Docker/uv/云/面板/桌面/安卓多形态）。LLM 为 BYOK，无内置模型，成本随 API 用量与上下文长度增长。最新版本 4.27.x（2026-08），最后提交 2026-08-14。",
+      "links": {
+        "website": "https://astrbot.app/",
+        "github": "https://github.com/AstrBotDevs/AstrBot",
+        "docs": "https://docs.astrbot.app/"
+      },
+      "last_updated": "2026-08-14",
+      "source_channel": "社区"
+    },
+    {
+      "name": "PentAGI",
+      "description": "自托管、全自主 AI Agent 渗透测试系统（vxcontrol），多智能体架构（Orchestrator/Researcher/Developer/Executor）在沙箱 Docker 中协作完成侦察→漏洞扫描→利用→后渗透→报告全链路，内置 20+ 安全工具（nmap/Metasploit/sqlmap 等）、Neo4j+Graphiti 知识图谱记忆、Web 智能与 Grafana/Langfuse 可观测。相似度：中——专注渗透测试领域的多智能体编排/工具调用/记忆平台，属 WorkBench 式 Agent 构建与自动化工作流能力的垂直特化版本。",
+      "free_usage": "开源、可自部署（Docker Compose 一键部署，数据完全本地可控）；LLM 支持 10+ 提供商（OpenAI/Anthropic/Ollama/DeepSeek/Qwen 等）BYOK。许可证类型 unknown（仓库含 LICENSE 文件但未在可见页面标注具体协议，需以官方仓库为准）。仅限授权目标使用；深度渗透测试 LLM 调用有成本。",
+      "links": {
+        "website": "https://github.com/vxcontrol/pentagi",
+        "github": "https://github.com/vxcontrol/pentagi",
+        "docs": null
+      },
+      "last_updated": "2026-08-06",
+      "source_channel": "GitHub"
+    }
+  ]
+}

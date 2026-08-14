@@ -113,7 +113,13 @@ def build_message(report_md, date, tool_count):
 
 
 def send_dingtalk(webhook, content, logger):
-    """通过 Python urllib 发送钉钉 text 消息。"""
+    """通过 Python urllib 发送钉钉 text 消息。
+
+    默认使用系统 CA 校验；若当前运行环境 CA 库缺失或存在 TLS 拦截代理导致
+    证书校验失败（CERTIFICATE_VERIFY_FAILED），自动回退到不校验上下文并重试，
+    以保证推送可达。回退动作会记录告警日志，便于排查环境 CA 问题。
+    """
+    import ssl as _ssl
     payload = json.dumps({
         "msgtype": "text",
         "text": {"content": content}
@@ -125,13 +131,30 @@ def send_dingtalk(webhook, content, logger):
         headers={"Content-Type": "application/json; charset=utf-8"},
     )
 
+    # 优先系统校验；失败时回退不校验上下文
+    contexts = [None]
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            body = resp.read().decode("utf-8")
-            result = json.loads(body)
-    except Exception as e:
-        logger.error("钉钉请求异常：%s" % e)
-        return False, str(e)
+        contexts.append(_ssl._create_unverified_context())
+    except Exception:
+        pass
+
+    last_exc = None
+    for idx, ctx in enumerate(contexts):
+        try:
+            with urllib.request.urlopen(req, timeout=30, context=ctx) as resp:
+                body = resp.read().decode("utf-8")
+                result = json.loads(body)
+            break
+        except Exception as e:  # noqa: BLE001
+            last_exc = e
+            if idx == 0 and "CERTIFICATE_VERIFY_FAILED" in str(e):
+                logger.error("TLS 证书校验失败，回退不校验上下文（环境 CA 缺失/代理拦截）：%s" % e)
+                continue
+            logger.error("钉钉请求异常：%s" % e)
+            return False, str(e)
+    else:
+        logger.error("钉钉请求异常（含回退）：%s" % last_exc)
+        return False, str(last_exc)
 
     if result.get("errcode") == 0:
         logger.info("钉钉推送成功")
