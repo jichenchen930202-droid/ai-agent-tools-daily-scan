@@ -1,0 +1,54 @@
+# 每日 AI Agent 工具扫描报告 - 2026-08-15
+
+> 搜索截止日期：2026-08-15 ｜ 生成时间：2026-08-15 10:06:56 ｜ 发现工具数：4
+
+## 汇总
+
+| # | 工具名称 | 功能描述 | 免费使用方式 | 访问链接 | 最后更新 | 发现渠道 |
+|---|---------|---------|-------------|---------|---------|---------|
+| 1 | OpenFang | 用 Rust 从零构建的开源 Agent 操作系统（Agent OS），运行自主代理（Autonomous agents）按计划 7×24 工作（知识图谱构建、OSINT 情报监控、深度研究、线索挖掘、内容发布等）。内置 Hands 自主功能包、30+ 预建代理、40 个频道适配器（Telegram/Discord/Slack/WhatsApp 等）、53+ 内置工具、MCP 客户端/服务端、A2A 协议、27 个 LLM 提供商智能路由与成本追踪，以及 16 个安全系统（WASM 沙箱、Merkle 审计链、SSRF 防护等）。相似度：高——自主 Agent 编排 + 工具调用 + 多渠道接入 + 记忆/知识图谱 + 可自托管，与 WorkBench 的 Agent 构建/编排/自动化定位高度契合，且强调安全与可审计。 | MIT 协议完全开源，可自由下载与自部署（一键安装脚本 `curl -fsSL https://openfang.sh/install \| sh` / Windows `irm ... \| iex`、Docker、`docker-compose.yml`、`flake.nix`）；编译为单二进制（约 32MB）本地运行，LLM 调用使用自有 API Key（BYOK），无强制云服务或订阅。当前 v0.6.9（pre-1.0），仍在活跃开发。 | [官网](https://www.openfang.sh/) / [GitHub](https://github.com/RightNow-AI/openfang) | 2026-05-13 | GitHub |
+| 2 | Fusion | 多节点（multi-node）AI Agent 编排平台，定位“Software Factory”——24/7 多代理协作完成软件构建。核心能力：可视化 Workflow Editor（自定义工作流图）、持久化角色代理路由工作流（规划/执行/审查/合并节点 + 容量租赁与恢复）、Agent 邮件/聊天室（提及路由）、层级化任务（Mission→Milestone→Slice→Feature→Task）、Git worktree 隔离、Cron 自动化例程、模型路由（5 条独立模型通道：executor/planner/validator/merger/title）、MCP/ACP 集成、OpenTelemetry(OTLP) 可观测、多节点 mesh 网络自动发现。相似度：高——多智能体编排 + 工作流可视化 + 自动化 + 工具/MCP 集成，与 WorkBench 的 Agent 构建与编排定位高度一致，偏软件工程 Agent 工厂。 | MIT 协议完全开源、可自托管（含 Dockerfile 与生产 Docker 工作流，支持 Docker / headless 部署）；桌面端（macOS/Windows/Linux）、原生 iOS/Android、Web、CLI 多形态全部免费。当前 v0.76.0（2026-08-13），主页标注“Early Preview”，活跃开发中（每日提交）。LLM 调用 BYOK。 | [官网](https://www.runfusion.ai/) / [GitHub](https://github.com/runfusion/fusion) | 2026-08-15 | GitHub |
+| 3 | Nanobot | 超轻量级、开源、自托管的个人 AI Agent 框架（Python），单包 `pip install nanobot-ai` 即可运行。核心能力：WebUI/终端/聊天应用多形态运行、工具（文件/Shell/网页搜索/网页抓取/MCP/cron/图像生成/子代理）、长期记忆（Dream）、多代理委派（multi-agent delegation）、模型路由（model routing）、计划自动化（scheduled automations）、OpenAI 兼容 API、可作为长驻本地或服务端 Agent 网关。相似度：高——本地 Agent 运行时 + 工具调用 + 多代理 + 记忆 + 调度，与 WorkBench 的本地 Agent 构建/执行定位高度契合；强调轻量与可读核心（核心循环小巧、技能/频道/内存按需插拔），偏个人/助理式 Agent，类似 OpenClaw 但更精简。 | 开源（仓库根目录含 LICENSE 文件，具体协议类型 GitHub 页面未显式标注，需以官方仓库为准）、完全免费自托管，pip 安装即用；LLM 为 BYOK（兼容 OpenAI/Anthropic 等）。当前 v0.3.0“The Agency Release”（2026-08-14 仍有提交），活跃开发中（HN Show HN 曾获 257 分，约 4.4 万 GitHub Stars）。 | [官网](https://nanobot.wiki/docs/latest/getting-started/nanobot-overview) / [GitHub](https://github.com/HKUDS/nanobot) / [文档](https://nanobot.wiki/docs/latest/getting-started/nanobot-overview) | 2026-08-14 | 社区 |
+| 4 | OpenWorker | Andrew Ng（吴恩达）团队开源的本地优先（local-first）桌面 AI 同事（AI coworker）——不聊天、直接交付完成的工作成果（润色文档、带数据的 Slack 回复、更新日历、分类收件箱等）。四层本地架构：Tauri 2 + React 18 桌面壳、Python(FastAPI) 本地 Agent 服务器、25+ 连接器（GitHub/Slack/Jira/Notion/Linear/HubSpot/Outlook/Gmail/Google Calendar 等）、基于 aisuite 的模型路由层（30+ 预置模型 + Ollama 本地）。支持 MCP 接入任意工具。相似度：高——本地 Agent 运行时 + 工具调用 + 连接器编排 + 记忆 + 审批门禁，与 WorkBench 的本地 Agent 构建/执行定位高度一致；强调权限分级与人工审批（read/write/exec/external 四级风险 + discuss/plan/interactive/auto/custom 模式，shell 命令任何模式均须确认），适合隐私敏感与想改造 Agent 框架的开发者。 | MIT 协议完全开源、免费、本地优先（Agent 循环/对话/连接器 token/模型 key 全留本机，可 Ollama 完全离线；仅 OAuth 代理为小云服务，允许不登录使用）。支持从源码自托管（Python 3.10+ / Node 20+ / Rust 工具链），亦提供 Mac/Windows 桌面安装包（Open Beta，自动更新）。模型 BYOK（OpenAI/Anthropic/Gemini/DeepSeek/Kimi/GLM/Qwen 等 + Ollama）。当前 Beta 阶段（多源称 v0.1.7，2026-07-23 发布，两周约 1.2 万 Stars）。 | [官网](https://openworker.com) / [GitHub](https://github.com/andrewyng/openworker) | 2026-08-08 | GitHub |
+
+## 详细信息
+
+### 1. OpenFang
+
+- **功能描述**：用 Rust 从零构建的开源 Agent 操作系统（Agent OS），运行自主代理（Autonomous agents）按计划 7×24 工作（知识图谱构建、OSINT 情报监控、深度研究、线索挖掘、内容发布等）。内置 Hands 自主功能包、30+ 预建代理、40 个频道适配器（Telegram/Discord/Slack/WhatsApp 等）、53+ 内置工具、MCP 客户端/服务端、A2A 协议、27 个 LLM 提供商智能路由与成本追踪，以及 16 个安全系统（WASM 沙箱、Merkle 审计链、SSRF 防护等）。相似度：高——自主 Agent 编排 + 工具调用 + 多渠道接入 + 记忆/知识图谱 + 可自托管，与 WorkBench 的 Agent 构建/编排/自动化定位高度契合，且强调安全与可审计。
+- **免费使用方式**：MIT 协议完全开源，可自由下载与自部署（一键安装脚本 `curl -fsSL https://openfang.sh/install | sh` / Windows `irm ... | iex`、Docker、`docker-compose.yml`、`flake.nix`）；编译为单二进制（约 32MB）本地运行，LLM 调用使用自有 API Key（BYOK），无强制云服务或订阅。当前 v0.6.9（pre-1.0），仍在活跃开发。
+- **官网**：https://www.openfang.sh/
+- **GitHub**：https://github.com/RightNow-AI/openfang
+- **文档**：-
+- **最后更新日期**：2026-05-13
+- **发现渠道**：GitHub
+
+### 2. Fusion
+
+- **功能描述**：多节点（multi-node）AI Agent 编排平台，定位“Software Factory”——24/7 多代理协作完成软件构建。核心能力：可视化 Workflow Editor（自定义工作流图）、持久化角色代理路由工作流（规划/执行/审查/合并节点 + 容量租赁与恢复）、Agent 邮件/聊天室（提及路由）、层级化任务（Mission→Milestone→Slice→Feature→Task）、Git worktree 隔离、Cron 自动化例程、模型路由（5 条独立模型通道：executor/planner/validator/merger/title）、MCP/ACP 集成、OpenTelemetry(OTLP) 可观测、多节点 mesh 网络自动发现。相似度：高——多智能体编排 + 工作流可视化 + 自动化 + 工具/MCP 集成，与 WorkBench 的 Agent 构建与编排定位高度一致，偏软件工程 Agent 工厂。
+- **免费使用方式**：MIT 协议完全开源、可自托管（含 Dockerfile 与生产 Docker 工作流，支持 Docker / headless 部署）；桌面端（macOS/Windows/Linux）、原生 iOS/Android、Web、CLI 多形态全部免费。当前 v0.76.0（2026-08-13），主页标注“Early Preview”，活跃开发中（每日提交）。LLM 调用 BYOK。
+- **官网**：https://www.runfusion.ai/
+- **GitHub**：https://github.com/runfusion/fusion
+- **文档**：-
+- **最后更新日期**：2026-08-15
+- **发现渠道**：GitHub
+
+### 3. Nanobot
+
+- **功能描述**：超轻量级、开源、自托管的个人 AI Agent 框架（Python），单包 `pip install nanobot-ai` 即可运行。核心能力：WebUI/终端/聊天应用多形态运行、工具（文件/Shell/网页搜索/网页抓取/MCP/cron/图像生成/子代理）、长期记忆（Dream）、多代理委派（multi-agent delegation）、模型路由（model routing）、计划自动化（scheduled automations）、OpenAI 兼容 API、可作为长驻本地或服务端 Agent 网关。相似度：高——本地 Agent 运行时 + 工具调用 + 多代理 + 记忆 + 调度，与 WorkBench 的本地 Agent 构建/执行定位高度契合；强调轻量与可读核心（核心循环小巧、技能/频道/内存按需插拔），偏个人/助理式 Agent，类似 OpenClaw 但更精简。
+- **免费使用方式**：开源（仓库根目录含 LICENSE 文件，具体协议类型 GitHub 页面未显式标注，需以官方仓库为准）、完全免费自托管，pip 安装即用；LLM 为 BYOK（兼容 OpenAI/Anthropic 等）。当前 v0.3.0“The Agency Release”（2026-08-14 仍有提交），活跃开发中（HN Show HN 曾获 257 分，约 4.4 万 GitHub Stars）。
+- **官网**：https://nanobot.wiki/docs/latest/getting-started/nanobot-overview
+- **GitHub**：https://github.com/HKUDS/nanobot
+- **文档**：https://nanobot.wiki/docs/latest/getting-started/nanobot-overview
+- **最后更新日期**：2026-08-14
+- **发现渠道**：社区
+
+### 4. OpenWorker
+
+- **功能描述**：Andrew Ng（吴恩达）团队开源的本地优先（local-first）桌面 AI 同事（AI coworker）——不聊天、直接交付完成的工作成果（润色文档、带数据的 Slack 回复、更新日历、分类收件箱等）。四层本地架构：Tauri 2 + React 18 桌面壳、Python(FastAPI) 本地 Agent 服务器、25+ 连接器（GitHub/Slack/Jira/Notion/Linear/HubSpot/Outlook/Gmail/Google Calendar 等）、基于 aisuite 的模型路由层（30+ 预置模型 + Ollama 本地）。支持 MCP 接入任意工具。相似度：高——本地 Agent 运行时 + 工具调用 + 连接器编排 + 记忆 + 审批门禁，与 WorkBench 的本地 Agent 构建/执行定位高度一致；强调权限分级与人工审批（read/write/exec/external 四级风险 + discuss/plan/interactive/auto/custom 模式，shell 命令任何模式均须确认），适合隐私敏感与想改造 Agent 框架的开发者。
+- **免费使用方式**：MIT 协议完全开源、免费、本地优先（Agent 循环/对话/连接器 token/模型 key 全留本机，可 Ollama 完全离线；仅 OAuth 代理为小云服务，允许不登录使用）。支持从源码自托管（Python 3.10+ / Node 20+ / Rust 工具链），亦提供 Mac/Windows 桌面安装包（Open Beta，自动更新）。模型 BYOK（OpenAI/Anthropic/Gemini/DeepSeek/Kimi/GLM/Qwen 等 + Ollama）。当前 Beta 阶段（多源称 v0.1.7，2026-07-23 发布，两周约 1.2 万 Stars）。
+- **官网**：https://openworker.com
+- **GitHub**：https://github.com/andrewyng/openworker
+- **文档**：-
+- **最后更新日期**：2026-08-08
+- **发现渠道**：GitHub
