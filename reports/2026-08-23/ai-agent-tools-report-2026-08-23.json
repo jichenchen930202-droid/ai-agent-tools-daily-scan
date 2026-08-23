@@ -1,0 +1,69 @@
+{
+  "report_date": "2026-08-23",
+  "generated_at": "2026-08-23 10:07:17",
+  "tool_count": 5,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "AgentSky",
+      "description": "托管式 AI 智能体运行时平台（Agent-as-a-Service）：一键将长时程 Agent 启动到隔离云沙箱，保留持久状态/完整历史/状态快照与托管恢复；支持 Claude Code、Codex、Hermes、OpenClaw 等任意 harness 与任意模型，同一 Agent 跨 WhatsApp/iMessage/Telegram/Slack/Discord/Web/API/CLI 统一可达。相似度：高（与 WorkBench 同属 Agent 构建/部署/托管基础设施，提供 Agent Builder + sky launch CLI + agent.toml 声明式配置 + REST API/事件流）；适用场景：个人/团队无需自建运维即可把本地 Agent 克隆上云、跨渠道长期运行、按工作量弹性计费。",
+      "free_usage": "新账号赠送 $3 免费额度，无需信用卡；闲置 agents 自动挂起、parked agents 免费；按沙箱计算时长（约 $0.021/GB·小时）与模型 token 计费；免费层即为注册即得额度，非限时试用，但持续运行会产生用量费用。",
+      "links": {
+        "website": "https://agentsky.dev/",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "2026-08-05",
+      "source_channel": "ProductHunt"
+    },
+    {
+      "name": "AgentConnect",
+      "description": "开源多智能体协作平台（团队层）：在团队已有沟通工具（Slack/Telegram/Discord/Lark·Feishu/GitHub）中标签化运行并协调 ACP 兼容 Agent（Claude Code、Codex、Gemini CLI、DeepSeek 等），每个 Agent 拥有独立角色/权限/记忆/计划任务/交接。相似度：高（与 WorkBench 同属多 Agent 编排与团队协作基础设施，采用 daemon 去中心化架构、团队级权限治理、cron/webhook/GitHub 事件触发）；适用场景：工程/运维团队把编码 Agent 带进共享渠道做 PR 审查、issue 分流、值班与支持。",
+      "free_usage": "Apache-2.0 开源，核心栈今日即可通过 Docker Compose 自托管（Web console + Control Plane + Relay + PostgreSQL），完全免费；托管 AgentConnect Cloud 控制台目前为 waitlist 早鸟访问，企业版需定制报价。需自备机器、PostgreSQL、模型 API Key/订阅，模型流量直连你的 Provider 不经 AgentConnect 中转。",
+      "links": {
+        "website": "https://www.agentconnect.md/",
+        "github": "https://github.com/agentconnect-md/agentconnect",
+        "docs": "https://github.com/agentconnect-md/agentconnect#readme"
+      },
+      "last_updated": "2026-08-11",
+      "source_channel": "ProductHunt"
+    },
+    {
+      "name": "Talon",
+      "description": "跨平台智能体 harness：在 Telegram/Discord/Teams/Terminal 运行持久后台 Agent（Goals/Heartbeat/Dream 模式），可插拔后端（Claude、Kilo、OpenCode、Codex、OpenAI Agents），完整 MCP 工具访问。相似度：高（与 WorkBench 同属可自托管 Agent harness，支持持久 Agent、MCP、多消息平台接入）；适用场景：个人/小团队把 Agent 接入消息平台做长期自动化任务。注：项目 2026-03 创建、近期仍活跃维护（2026-08-22 仍有提交），属新进入公众视野的轻量 harness。",
+      "free_usage": "MIT 协议完全开源，可自托管；运行需自备 LLM API Key（支持多可插拔后端）与所在平台 bot token。无付费墙、无功能限制。",
+      "links": {
+        "website": "https://talon-agent.github.io",
+        "github": "https://github.com/dylanneve1/talon",
+        "docs": "https://talon-agent.github.io"
+      },
+      "last_updated": "2026-08-22",
+      "source_channel": "社区"
+    },
+    {
+      "name": "HyperFlow",
+      "description": "自进化 Agent 框架：用两个 Agent（TaskAgent 解题 + MetaAgent 改进器）让 Agent 自动改写并测试自身代码/工具/提示，在隔离沙箱（Docker）中迭代并留存高分版本。相似度：中（与 WorkBench 同属 Agent 框架，强调自愈循环、提示/代码自动优化，但体量小、偏实验）；适用场景：研究型/实验性 Agent 自改进、自动化提示工程。注：实验性早期项目（约 8★），最近更新 2026-08-08，适合二次开发而非生产。",
+      "free_usage": "MIT 协议完全开源，可自托管（基于 LangChain/LangGraph，Python）。无付费层；运行需自备 LLM API Key。当前为早期实验项目，适合研究/二次开发。",
+      "links": {
+        "website": "https://hyperflow.lablnet.com/",
+        "github": "https://github.com/lablnet/HyperFlow",
+        "docs": "https://github.com/lablnet/HyperFlow#readme"
+      },
+      "last_updated": "2026-08-08",
+      "source_channel": "社区"
+    },
+    {
+      "name": "Omni by xpander",
+      "description": "对话式 AI 工程师 / 云 Agent 构建运维平台：把描述的业务流程或本地已有 Agent 转化为生产级长期运行云 Agent（scheduled、long-running、团队可共享），自动接线工具/MCP/技能、在 mock 数据上测试、监控与提示迭代；模型无关、支持自托管/VPC/air-gapped。相似度：高（与 WorkBench 同属 Agent 构建→部署→运维全生命周期平台，含编排/调度/状态/可观测/治理/审批）；适用场景：团队把原型 Agent 上线为可靠云端服务，做 PR 审查、IT 支持、文档/合同自动化。",
+      "free_usage": "新账号赠送 1,000 免费信用点（1 credit = $0.01），无坐席费，Team 版支持不限量 agents/工作流/seats；按 Agent 唤醒（1 credit/次）与工具/API 调用（1 credit/次）计费，模型 token 另计；信用卡注册。自托管企业版为年费许可（起 50 agents），价格需定制。",
+      "links": {
+        "website": "https://xpander.ai/",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "2026-08-17",
+      "source_channel": "ProductHunt"
+    }
+  ]
+}
