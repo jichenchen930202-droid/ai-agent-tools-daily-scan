@@ -1,0 +1,54 @@
+# 每日 AI Agent 工具扫描报告 - 2026-08-24
+
+> 搜索截止日期：2026-08-24 ｜ 生成时间：2026-08-24 10:08:04 ｜ 发现工具数：4
+
+## 汇总
+
+| # | 工具名称 | 功能描述 | 免费使用方式 | 访问链接 | 最后更新 | 发现渠道 |
+|---|---------|---------|-------------|---------|---------|---------|
+| 1 | Hive | aden-hive/hive 推出的开源生产级多智能体 Harness（Multi-Agent Harness for Production AI）。核心能力：以 LLM 驱动的智能编排自动生成并在运行时演化 Agent 拓扑（node graph），内置自修复与自我进化闭环、human-in-the-loop 节点、凭据管理与实时监控；通过 LiteLLM 支持 100+ LLM（GPT/Claude/Gemini/本地 Ollama 等），自带 agent-skills 体系。与 WorkBench 相似度：高——同属可自托管的 Agent 编排/构建运行时，强调多智能体协作、工具调用与自动化工作流，区别在 Hive 以“运行时自生成拓扑+自进化”为特色。适用场景：需要生产级、可自我演化的多智能体系统，复杂业务自动化（如 ERP 对账、文档处理）。 | 完全免费开源（Apache-2.0），可自托管（Docker）；无付费墙，模型按 BYOK 计费（API 或本地模型均支持）。GitHub 星标约 10,950，fork 约 5,673。 | [官网](https://github.com/aden-hive/hive) / [GitHub](https://github.com/aden-hive/hive) | 2026-08-21 | 社区 |
+| 2 | Agent Swarm | desplega-ai/agent-swarm 开源多智能体编排框架，面向 Claude Code / Codex / Gemini CLI 等 AI 编程助手。核心能力：Lead/Worker 架构，Lead 接收任务（Slack/GitHub/Email/API）并拆解分派给隔离 Docker 容器中的 Worker；共享 MCP API + SQLite 实现“复利记忆”（OpenAI embeddings 检索历史经验）、持久化身份文件（SOUL.md/IDENTITY.md）、DAG 工作流引擎、human-in-the-loop、定时任务与技能系统。与 WorkBench 相似度：中高——同样是多智能体协作编排 + 工具调用 + 自动化，但更聚焦“编程助手团队”场景，依赖 Claude Code OAuth token。适用场景：用一支 AI 编程团队并行处理复杂开发任务，跨会话持续学习。 | 完全免费开源（MIT，2025-2026），可自托管（Docker Compose，API 端口 3013）；需自备 Claude Code OAuth / API Key，模型调用按厂商计费。GitHub 星标约 571（SourcePulse）。 | [官网](https://github.com/desplega-ai/agent-swarm) / [GitHub](https://github.com/desplega-ai/agent-swarm) / [文档](https://docs.agent-swarm.dev) | unknown | 社区 |
+| 3 | Atom | rush86999/atom 开源、自托管的“受治理 AI agent 平台”（The governed agent platform — autonomy, earned）。核心能力：用自然语言委派工作的专业代理团队（销售/支持/财务/工程等），4 级成熟度模型（STUDENT→INTERN→SUPERVISED→AUTONOMOUS）逐步授予自治权；首创“Canvas AI Accessibility”隐藏语义层解决状态盲视，结果验证 oracle + 沙箱安全层（文件系统范围/工具白名单/熔断）；46+ 业务集成、多代理编排、Office/Canvas 原生编辑、Agent Radio 横向通信；数据存于自有基础设施，BYOK 或本地 Ollama。与 WorkBench 相似度：高——同属可自托管的企业级 Agent 构建/编排平台，强调治理、记忆与审计，区别在 Atom 以“可视化状态验证+成熟度门控”为治理特色。适用场景：企业复杂业务工作流自动化（发票、SaaS 运维），需要可审计、渐进自治的 Agent 队伍。 | Free edition 全功能开源（AGPL v3），可自托管（Docker / docker-compose / 本地 Ollama / DigitalOcean 1-Click / Fly.io）；无闭源专业版，密钥 BYOK 永不按层级限制。 | [官网](https://github.com/rush86999/atom) / [GitHub](https://github.com/rush86999/atom) | 2026-08-24 | 社区 |
+| 4 | Eva | missingstudio/eva 开源、AI 原生的“软件工厂”（open-source, AI-native software factory）。核心能力：从机器可检查的 spec 出发，经自带 harness 完成编码工作并产出完成证据（evidence, not claims）；插件内核（plugin kernel）让模型/界面/trace/Workflow 等皆为插件；可驱动已在付费的其他 harness（Claude Code/Codex/OpenCode/DeepSeek Harness），统一在单一契约、单一 trace、单一验证器与单一账单下；本地 CLI 与服务为同一程序。与 WorkBench 相似度：中——属 Agent 驱动的执行/软件工厂平台，强调可验证执行与编排，但当前仍 early（尚无完整 agent，验证仅形状层面）。适用场景：把自然语言需求转成可审计、证据化的编码产出，统一编排多个 harness 的工作流。 | 完全免费开源（MIT），可自托管（Bun 1.3+ 从源码构建 / Homebrew / 安装脚本 / npm 预编译二进制，本地 CLI 或服务均可）；当前为早期阶段，以源码与预构建二进制分发。 | [官网](https://github.com/missingstudio/eva) / [GitHub](https://github.com/missingstudio/eva) | 2026-08-23 | 社区 |
+
+## 详细信息
+
+### 1. Hive
+
+- **功能描述**：aden-hive/hive 推出的开源生产级多智能体 Harness（Multi-Agent Harness for Production AI）。核心能力：以 LLM 驱动的智能编排自动生成并在运行时演化 Agent 拓扑（node graph），内置自修复与自我进化闭环、human-in-the-loop 节点、凭据管理与实时监控；通过 LiteLLM 支持 100+ LLM（GPT/Claude/Gemini/本地 Ollama 等），自带 agent-skills 体系。与 WorkBench 相似度：高——同属可自托管的 Agent 编排/构建运行时，强调多智能体协作、工具调用与自动化工作流，区别在 Hive 以“运行时自生成拓扑+自进化”为特色。适用场景：需要生产级、可自我演化的多智能体系统，复杂业务自动化（如 ERP 对账、文档处理）。
+- **免费使用方式**：完全免费开源（Apache-2.0），可自托管（Docker）；无付费墙，模型按 BYOK 计费（API 或本地模型均支持）。GitHub 星标约 10,950，fork 约 5,673。
+- **官网**：https://github.com/aden-hive/hive
+- **GitHub**：https://github.com/aden-hive/hive
+- **文档**：-
+- **最后更新日期**：2026-08-21
+- **发现渠道**：社区
+
+### 2. Agent Swarm
+
+- **功能描述**：desplega-ai/agent-swarm 开源多智能体编排框架，面向 Claude Code / Codex / Gemini CLI 等 AI 编程助手。核心能力：Lead/Worker 架构，Lead 接收任务（Slack/GitHub/Email/API）并拆解分派给隔离 Docker 容器中的 Worker；共享 MCP API + SQLite 实现“复利记忆”（OpenAI embeddings 检索历史经验）、持久化身份文件（SOUL.md/IDENTITY.md）、DAG 工作流引擎、human-in-the-loop、定时任务与技能系统。与 WorkBench 相似度：中高——同样是多智能体协作编排 + 工具调用 + 自动化，但更聚焦“编程助手团队”场景，依赖 Claude Code OAuth token。适用场景：用一支 AI 编程团队并行处理复杂开发任务，跨会话持续学习。
+- **免费使用方式**：完全免费开源（MIT，2025-2026），可自托管（Docker Compose，API 端口 3013）；需自备 Claude Code OAuth / API Key，模型调用按厂商计费。GitHub 星标约 571（SourcePulse）。
+- **官网**：https://github.com/desplega-ai/agent-swarm
+- **GitHub**：https://github.com/desplega-ai/agent-swarm
+- **文档**：https://docs.agent-swarm.dev
+- **最后更新日期**：unknown
+- **发现渠道**：社区
+
+### 3. Atom
+
+- **功能描述**：rush86999/atom 开源、自托管的“受治理 AI agent 平台”（The governed agent platform — autonomy, earned）。核心能力：用自然语言委派工作的专业代理团队（销售/支持/财务/工程等），4 级成熟度模型（STUDENT→INTERN→SUPERVISED→AUTONOMOUS）逐步授予自治权；首创“Canvas AI Accessibility”隐藏语义层解决状态盲视，结果验证 oracle + 沙箱安全层（文件系统范围/工具白名单/熔断）；46+ 业务集成、多代理编排、Office/Canvas 原生编辑、Agent Radio 横向通信；数据存于自有基础设施，BYOK 或本地 Ollama。与 WorkBench 相似度：高——同属可自托管的企业级 Agent 构建/编排平台，强调治理、记忆与审计，区别在 Atom 以“可视化状态验证+成熟度门控”为治理特色。适用场景：企业复杂业务工作流自动化（发票、SaaS 运维），需要可审计、渐进自治的 Agent 队伍。
+- **免费使用方式**：Free edition 全功能开源（AGPL v3），可自托管（Docker / docker-compose / 本地 Ollama / DigitalOcean 1-Click / Fly.io）；无闭源专业版，密钥 BYOK 永不按层级限制。
+- **官网**：https://github.com/rush86999/atom
+- **GitHub**：https://github.com/rush86999/atom
+- **文档**：-
+- **最后更新日期**：2026-08-24
+- **发现渠道**：社区
+
+### 4. Eva
+
+- **功能描述**：missingstudio/eva 开源、AI 原生的“软件工厂”（open-source, AI-native software factory）。核心能力：从机器可检查的 spec 出发，经自带 harness 完成编码工作并产出完成证据（evidence, not claims）；插件内核（plugin kernel）让模型/界面/trace/Workflow 等皆为插件；可驱动已在付费的其他 harness（Claude Code/Codex/OpenCode/DeepSeek Harness），统一在单一契约、单一 trace、单一验证器与单一账单下；本地 CLI 与服务为同一程序。与 WorkBench 相似度：中——属 Agent 驱动的执行/软件工厂平台，强调可验证执行与编排，但当前仍 early（尚无完整 agent，验证仅形状层面）。适用场景：把自然语言需求转成可审计、证据化的编码产出，统一编排多个 harness 的工作流。
+- **免费使用方式**：完全免费开源（MIT），可自托管（Bun 1.3+ 从源码构建 / Homebrew / 安装脚本 / npm 预编译二进制，本地 CLI 或服务均可）；当前为早期阶段，以源码与预构建二进制分发。
+- **官网**：https://github.com/missingstudio/eva
+- **GitHub**：https://github.com/missingstudio/eva
+- **文档**：-
+- **最后更新日期**：2026-08-23
+- **发现渠道**：社区
