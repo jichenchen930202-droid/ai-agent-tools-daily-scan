@@ -1,0 +1,33 @@
+{
+  "report_date": "2026-08-26",
+  "generated_at": "2026-08-26 10:13:19",
+  "tool_count": 2,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "Munder Difflin",
+      "description": "本地多 Agent 编排框架（Electron + Pixi.js 像素办公室）。把你已有的终端编码 CLI（Claude Code、Codex、Grok、Kimi Code、Qwen、Gemini CLI、OpenCode、Copilot、Cursor 等）封装为常驻的「克隆」Agent，由 GOD Agent（Michael）统一调度；通过本地 git 仓库实现共享邮箱/黑板/记忆，支持端到端加密的 Agent 间通信、Slack/Webhook 触发器、HITL 审批门与三级熔断器。相似度：高——多 Agent 编排与自动化工作流，与 WorkBench 的 Agent 编排能力高度重合；核心差异是强调本地自托管、BYOK、不上传代码到托管平台。",
+      "free_usage": "Solo Local 完全免费、无需账号、本地运行零软件成本（复用你已购买的 CLI 订阅即可）；付费档（Solo+Cloud 24/7 托管、Teams 协作/共享知识库）仅面向想把克隆托管到云而非想要软件本身的用户。开源（README 标注 MIT，GitHub 元数据自动识别为 NOASSERTION），可自部署。",
+      "links": {
+        "website": "https://munderdiffl.in",
+        "github": "https://github.com/chaitanyagiri/munder-difflin",
+        "docs": null
+      },
+      "last_updated": "2026-08-26",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Skydive",
+      "description": "无代码 AI Agent「同事」构建平台（Anything 公司出品，2026-08-20 公开发布）。用自然语言描述目标即生成可自主工作的 Agent：每个 Agent 拥有独立云电脑（浏览器+文件+终端）、统一身份与跨 Slack/邮件/iMessage/Web 的记忆，可在 Gmail/GitHub/Notion/Linear 等 600+ 工具内端到端执行任务，并支持多 Agent 协作交接与定时例程。相似度：高——自然语言驱动的任务执行 + 多 Agent 编排 + 工具调用/MCP 生态 + 定时自动化，与 WorkBench 的 Agent 构建能力高度相似。",
+      "free_usage": "Freemium：注册免费、无限 Agent、无席位费、模型成本按用量透传（无加价）；Starter $20/月（最多 5 用户）、Team $200/月、Enterprise 定制。免费层 = 注册免费 + 无限 Agent，但每次模型调用按用量计费（未标明显式免费模型额度）。非开源，为托管 SaaS。",
+      "links": {
+        "website": "https://www.skydive.com",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "2026-08-20",
+      "source_channel": "ProductHunt"
+    }
+  ]
+}
