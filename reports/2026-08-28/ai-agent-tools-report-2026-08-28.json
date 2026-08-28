@@ -1,0 +1,57 @@
+{
+  "report_date": "2026-08-28",
+  "generated_at": "2026-08-28 10:12:37",
+  "tool_count": 4,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "Superlog Responder",
+      "description": "开源 AI 可观测性 / 自愈工具，用 AI Agent 自动调查并修复软件事件：摄取 traces/logs/metrics 并分组为 incident，由 AI agent 执行调查与自愈；社区版开源完整源码（Web/API/Proxy/Worker），可接入 Sentry/Datadog/Slack。相似度：中（AI Agent 驱动的运维自愈，辅助构建自动化运维 Agent）。适用：SRE/开发团队用 AI Agent 自动定位并修复线上问题。",
+      "free_usage": "开源 Apache-2.0，社区版免费自托管，无付费墙；云端版 / 完整自动修复能力为增值项。",
+      "links": {
+        "website": "https://github.com/superloglabs/superlog",
+        "github": "https://github.com/superloglabs/superlog",
+        "docs": null
+      },
+      "last_updated": "2026-08-27",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Macro 1.0",
+      "description": "统一团队工作空间（邮件/聊天/文档/任务/智能体/通话/CRM），通过 @ 链接与团队级共享 AI 记忆打通；内置 Agents 支持 Claude Code/Codex 等经 MCP 接入，可代执行操作并作为 Agent 协作与自动化基座。相似度：中高（内置 Agents + 团队共享记忆 + MCP 工具面）。适用：团队在单一自托管空间内用 AI Agent 处理日常协作与自动化。",
+      "free_usage": "完全开源 AGPLv3（非 open-core），可自托管（docker compose / nix），无许可费用；云托管为可选商业项。",
+      "links": {
+        "website": "https://github.com/macro-inc/macro",
+        "github": "https://github.com/macro-inc/macro",
+        "docs": "https://github.com/macro-inc/macro/blob/main/docs/RUNNING_LOCALLY.md"
+      },
+      "last_updated": "2026-08-28",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Ninjō AI",
+      "description": "面向 Instagram/WhatsApp 等渠道的 AI 销售 Agent 基础设施；通过 MCP 让 Claude/Claude Code/ChatGPT/Codex 直接「对话式」创建/测试/优化销售 Agent，内置版本回滚、合成对话测试、跟进、关键词触发与内置 CRM，已在 150+ 生产 Agent 上验证（累计 $750K+ 销售额）。相似度：中（经 MCP 暴露的 Agent 构建/运维基础设施）。适用：用对话式方式在任意渠道快速上线 AI 销售 Agent 的团队/代理商。",
+      "free_usage": "免费档——1,000 条免费消息、无需信用卡（Promo 码 PRODUCTHUNT）；属 freemium，后续用量计费。",
+      "links": {
+        "website": "https://www.producthunt.com/products/ninjo-ai",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "2026-08-25",
+      "source_channel": "ProductHunt"
+    },
+    {
+      "name": "Zinley",
+      "description": "个人 AI 代表（AI representative），拥有独立电话号码、邮箱与「电脑」，可接听电话、处理邮件、预约、跟进并在规则内完成任务；集成 Gmail/Slack/Calendar/Notion/Linear/GitHub/Drive/Figma，记忆联系人关系，对不确定信息会回交用户确认而非编造。相似度：中（面向个人的自主 Agent 执行体）。适用：希望把来电/邮件/日程等重复事务交给 AI 代表处理的高管/独立工作者。",
+      "free_usage": "提供免费档（免费日额度/免费计划），无需信用卡即可起步；超出按用量计费（freemium）。",
+      "links": {
+        "website": "https://zinley.com",
+        "github": null,
+        "docs": null
+      },
+      "last_updated": "2026-08-03",
+      "source_channel": "ProductHunt"
+    }
+  ]
+}
