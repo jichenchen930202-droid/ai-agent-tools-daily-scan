@@ -1,0 +1,45 @@
+{
+  "report_date": "2026-08-29",
+  "generated_at": "2026-08-29 11:39:13",
+  "tool_count": 3,
+  "no_new_tools": false,
+  "note": "",
+  "tools": [
+    {
+      "name": "AgentZ (AccuKnox)",
+      "description": "零信任 AI Agent 平台，统一构建 / 运行 / 治理 AI 代理。采用「组织-工作区-代理-工作流-沙箱」模型：每个代理在独立沙箱内执行（可配置 vCPU/内存/文件系统/域名白名单/网络访问），运行时注入凭据、工具级权限、可视化工作流图与执行轨迹/审计日志；模型无关，支持 OpenAI、Claude、Grok 及自带大模型（BYOLLM），支持 SaaS、本地部署与隔离（air-gapped）部署。相似度：高——与 WorkBench 同为「Agent 构建 + 编排 + 治理」一体化平台，且支持自带模型与自托管，定位企业级生产落地。",
+      "free_usage": "托管 SaaS 提供免费计划（agentzharness.ai，可用 GitHub / Google 登录，免费构建并运行代理、工作流与技能、沙箱执行）；企业 / 自管与隔离部署需联系销售定价；开源仓库 Apache-2.0，可自行克隆自托管（无平台软件费，仅付模型与算力）。",
+      "links": {
+        "website": "https://agentzharness.ai",
+        "github": "https://github.com/accuknox/agentZ",
+        "docs": "https://github.com/accuknox/agentZ"
+      },
+      "last_updated": "2026-08-28",
+      "source_channel": "GitHub"
+    },
+    {
+      "name": "Oasis",
+      "description": "多人 AI 工作空间，让人类与 AI 代理作为「平等队友」在同一 Room 内协作。支持通过模板（销售研究、客服、代码审查、招聘等）快速创建代理团队，共享记忆随使用复利增长；路由 Claude / GPT / Gemini 及开源模型，可连接 Devin、Manus、Claude Code 等外部代理，Mac 原生应用将本地代理无配置桥接进 Room；代理具备名称、角色、系统提示、模型与可选工具（Gmail、Linear 等）。相似度：中——偏「多代理协作 / 编排工作空间」，团队级人类+Agent 协同，并非完全低代码构建器，但具备协调 Agent 团队、策略与审批能力，与 WorkBench 工作流编排场景相关。",
+      "free_usage": "Freemium。Free 档 $0/月：最多 3 席位、10 个集成、10 个定时 Room/月、可使用开源模型；Starter $19/月（10 席位、25 集成、20 定时 Room、全模型按量）；Pro $199/月（50 席位、SSO、审计、导出）；付费计划支持自带 API Key 按量计费；免费档无需信用卡即可试用。",
+      "links": {
+        "website": "https://joinoasis.com",
+        "github": null,
+        "docs": "https://joinoasis.com"
+      },
+      "last_updated": "unknown",
+      "source_channel": "ProductHunt"
+    },
+    {
+      "name": "Heym",
+      "description": "源代码可见（source-available）的多智能体工作流平台，可在自有基础设施上构建并运行 agentic 系统。可视化构建多代理工作流、连接自有数据与工具、接入 Codex / OpenCode 等编码代理、在关键节点加入人工审批；内置 traces、成本、延迟与 evals 可观测性；可将工作流暴露为 Portal、API 或 MCP 工具。相似度：高——与 WorkBench 同为「可视化多代理工作流编排 + 自托管」平台，强调自带模型与凭据、数据驻留可控。",
+      "free_usage": "自托管免费（source-available，自带模型与凭据，无平台软件费；具体许可证未公开确认，非完全开源）；ProductHunt 标注「free and available today」。注：许可证性质以官方仓库为准，本报告中记为 unknown。",
+      "links": {
+        "website": "https://www.producthunt.com/products/heym",
+        "github": null,
+        "docs": "https://www.producthunt.com/products/heym"
+      },
+      "last_updated": "unknown",
+      "source_channel": "ProductHunt"
+    }
+  ]
+}
